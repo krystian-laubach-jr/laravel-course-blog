@@ -9,8 +9,11 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $posts = Post::where('category_id', request('category_id'))
-            ->orderBy('id','desc')->get();
+        $posts = Post::when(request('category_id'), function ($query) {
+            $query->where('category_id', request('category_id'));
+        })
+            ->orderBy('id','desc')
+            ->get();
 
         $categories = Category::all();
 
