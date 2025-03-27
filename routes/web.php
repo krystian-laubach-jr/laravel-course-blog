@@ -8,4 +8,4 @@ Route::get('' , [HomeController::class, 'index'] )->name('home');
 
 Route::view( 'about' , 'about')->name('about');
 Route::view( 'contact' , 'contact')->name('contact');
-Route::get('article/{postID}', [PostController::class, 'show'])->name('article');
+Route::get('article/{post}', [PostController::class, 'show'])->name('article');
